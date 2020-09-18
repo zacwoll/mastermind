@@ -16,6 +16,7 @@ for (let i = 3; i >= 0; i--) {
 
 let found_correct_seq = false;
 let ctr = 0;
+let hint_ctr = 0;
 
 while (!found_correct_seq) {
 	let guess = prompt('Guess a number from 1000 - 9999: ');
@@ -59,9 +60,19 @@ while (!found_correct_seq) {
 		console.log('Congrats, you got it!');
 		console.log(`It took you ${ctr} tries!`);
 		found_correct_seq = true;
+	} else if (guess === '0') {
+		hint_ctr++;
+		if (hint_ctr > 3)
+			hint_ctr = 3;
+		console.log('X '.repeat(4 - hint_ctr) + master_set.slice(4 - hint_ctr).join(' '));
 	} else {
 		console.log('Not quite the number.');
 		console.log(`But you have ${correct} digits correct and in sequence!`);
 		console.log(`Also, you have ${exists - correct} digits correct out of sequence`)
+	}
+
+	// Hints
+	if (ctr % 10 === 0 && found_correct_seq != true) {
+		console.log('If you need a hint, input 0');
 	}
 }
