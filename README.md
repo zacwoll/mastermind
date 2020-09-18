@@ -1,6 +1,6 @@
-#Welcome to my Mastermind game!
+# Welcome to my Mastermind game!
 
-##There's a lot of excess right now, but here's how you play.
+## There's a lot of excess right now, but here's how you play.
 
 For files, you only need mastermind.js
 However for compiling and running the script, you need Node v10.14.x or later
